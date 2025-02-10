@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<h1 style="text-align:center;">Add Movie Details</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="container w-50 mx-auto">
+  <h2 class="text-center mt-3"></h2>
+    {{form|crispy}}
+  <div class="mb-3 mt-4">
+    <input type="submit" class="btn btn-outline-primary fw-bold">
+  </div>
+</div>
+</form>
+
+
+{% endblock %}
