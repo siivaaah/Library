@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Home</title>
+  {% endblock %}
+
+{% block content %}
+<h1 style="text-align:center;">WELCOME TO HOME PAGE</h1>
+{% if user.is_authenticated %}<h2>WELCOME {{user.username}}</h2>{% else %}<h2>WELCOME GUEST</h2>{% endif %}
+{% endblock %}
+

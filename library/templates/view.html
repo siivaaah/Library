@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>View Books</title>
+  {% endblock %}
+
+{% block content %}
+<h1 style="text-align:center; color:red;">BOOK DETAILS</h1>
+<div class="container w-50 mx-auto p-3">
+<table class="table table-bordered table-secondary">
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Language</th>
+    <th>Pages</th>
+    <th>PDF</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  {% for i in books %}
+  <tr>
+    <td><img src="{{i.image.url}}" height="100px" width="150px"></td>
+    <td>{{i.title}}</td>
+    <td>{{i.author}}</td>
+    <td>{{i.price}}</td>
+    <td>{{i.language}}</td>
+    <td>{{i.pages}}</td>
+    <td><a href="{{i.pdf.url}}">Download</a></td>
+    <td><a href="{% url 'books:detail' i.id %}" class="btn btn-danger">view</a></td>
+    <td><a href="{% url 'books:edit' i.id %}" class="btn btn-danger">edit</a></td>
+    <td><a href="{% url 'books:delete' i.id %}" class="btn btn-danger">delete</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<!--  <ol>-->
+<!--  {% for i in books %}-->
+<!--  <li>Book Details</li>-->
+<!--  <ul>-->
+<!--    <li>Title-{{i.title}}</li>-->
+<!--    <li>Author-{{i.author}}</li>-->
+<!--    <li>Price-{{i.price}}</li>-->
+<!--    <li>Language-{{i.language}}</li>-->
+<!--    <li>Pages-{{i.pages}}</li>-->
+<!--  </ul>-->
+<!--  {% endfor %}-->
+<!--  </ol>-->
+
+{% endblock %}
+</div>

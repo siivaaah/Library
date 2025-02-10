@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Search Book</title>
+  {% endblock %}
+
+{% block content %}
+
+<div class="container w-50 mx-auto">
+
+  <h2 class="text-center mt-3">Search Book Details</h2>
+
+  {% csrf_token %}
+
+{% if books.exists %}
+<table class="table table-bordered table-secondary">
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th>Language</th>
+    <th>Pages</th>
+    <th>View</th>
+  </tr>
+  {% for i in books %}
+  <tr>
+    <td><img src="{{i.image.url}}" height="100px" width="150px"></td>
+    <td>{{i.title}}</td>
+    <td>{{i.author}}</td>
+    <td>{{i.price}}</td>
+    <td>{{i.language}}</td>
+    <td>{{i.pages}}</td>
+    <td><a href="{% url 'books:detail' i.id %}" class="btn btn-danger">view</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% else %}
+<h2 class="text-center">No Results Found</h2>
+{% endif %}
+
+</div>
+
+{% endblock %}
+

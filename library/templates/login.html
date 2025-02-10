@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+  {% block title %}
+    <title>Login</title>
+  {% endblock %}
+
+{% block content %}
+<h1 style="text-align:center; color:red;">Login Here</h1>
+
+<div class="container w-50 mx-auto">
+  <h2 class="text-center mt-3"></h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<!--cross site request forgery-->
+  <div class="mb-3 mt-3">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" name="u" placeholder="Enter Username">
+  </div>
+  <div class="mb-3 mt-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" name="p" placeholder="Enter Password">
+  </div>
+  <div class="mb-3 mt-4">
+    <input type="submit" class="btn btn-outline-light fw-bold">
+  </div>
+  </form>
+  {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+
+
+{% endblock %}
+
