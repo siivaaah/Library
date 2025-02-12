@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+    <h3 class="text-center mt-3">School Details</h3>
+
+    <p class="mt-4"><b>School Name:-{{detail.name}}</b></p>
+    <p><b>School Location:-{{detail.location}}</b></p>
+    <p class="mb-5"><b>School's Principal name:-{{detail.principle}}</b></p>
+
+    {% for i in detail.student.all %}
+    <p><b>Name is {{i.name}} and Age is {{i.age}}</b></p>
+    {% endfor %}
+
+</div>
+{% endblock %}

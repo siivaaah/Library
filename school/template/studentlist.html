@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align:center;" class="mt-4">DETAILS</h1>
+<div class="container w-50 mx-auto p-3">
+    <table class="table table-bordered table-warning">
+  <tr>
+    <th>Student Name</th>
+    <th>Age</th>
+    <th>School Name</th>
+    <th>Location</th>
+    <th>Principal</th>
+  </tr>
+  {% for i in student %}
+  <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.age}}</td>
+    <td>{{i.school.name}}</td>
+    <td>{{i.school.location}}</td>
+    <td>{{i.school.principle}}</td>
+  </tr>
+  {% endfor %}
+</table>
+    {{name}}
+    {{school}}
+</div>
+
+{% endblock %}
