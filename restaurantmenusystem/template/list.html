@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+  <h1 class="text-center mb-5 mt-2">ITEMS</h1>
+
+    {% for i in m %}
+    <li class="list-group-item fw-bold fs-4">{{i.name}}</li>
+    {% for x in i.items.all %}
+    <li class="list-group-item">{{x.name}}</li>
+    {% endfor %}
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

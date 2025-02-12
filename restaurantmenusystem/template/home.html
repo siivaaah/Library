@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+    <h3 class="text-center mt-3">Menu</h3>
+
+   {% for i in menu %}
+
+        <ul>
+            <li><a href="{% url 'view' i.id %}">{{i.name}}</a></li>
+        </ul>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

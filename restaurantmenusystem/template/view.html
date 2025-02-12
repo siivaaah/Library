@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+
+    <h1 class="text-center mt-3 fw-bold">{{m.name}}</h1>
+
+    <ul class="list-group list-group-flush">
+        {% for i in m.items.all %}
+        <li class="list-group-item text-center"><a href="{% url 'update' i.id %}">{{i.name}}<i class="fa-solid fa-pen"></i></a></li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
